@@ -1,0 +1,270 @@
+INFO       2017-06-07 08:14:51,551 ================== Programet startar ==================
+INFO       2017-06-07 08:14:51,551 ISA-Season 2017
+INFO       2017-06-07 08:14:51,560 LastSeason 2017
+INFO       2017-06-07 08:14:51,882 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-07 08:14:51,882 364 ISA-matcher har lästs in.
+INFO       2017-06-07 08:14:51,894 364 egna matcher har lästs in.
+INFO       2017-06-07 08:14:52,523 ================== Programet avslutas ==================
+INFO       2017-06-07 09:00:30,193 ================== Programet startar ==================
+INFO       2017-06-07 09:00:30,193 ISA-Season 2017
+INFO       2017-06-07 09:00:30,205 LastSeason 2017
+INFO       2017-06-07 09:00:30,536 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-07 09:00:30,537 364 ISA-matcher har lästs in.
+INFO       2017-06-07 09:00:30,554 364 egna matcher har lästs in.
+INFO       2017-06-07 09:00:31,193 ================== Programet avslutas ==================
+INFO       2017-06-07 09:02:56,735 ================== Programet startar ==================
+INFO       2017-06-07 09:02:56,736 ISA-Season 2017
+INFO       2017-06-07 09:02:56,749 LastSeason 2017
+INFO       2017-06-07 09:02:57,062 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-07 09:02:57,063 364 ISA-matcher har lästs in.
+INFO       2017-06-07 09:02:57,073 364 egna matcher har lästs in.
+INFO       2017-06-07 09:02:57,893 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-06-07 09:02:57,893 ================== Programet avslutas ==================
+INFO       2017-06-13 09:35:15,767 ================== Programet startar ==================
+INFO       2017-06-13 09:35:15,767 ISA-Season 2017
+INFO       2017-06-13 09:35:15,782 LastSeason 2017
+INFO       2017-06-13 09:35:16,121 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-13 09:35:16,122 364 ISA-matcher har lästs in.
+INFO       2017-06-13 09:35:16,137 364 egna matcher har lästs in.
+INFO       2017-06-13 09:35:16,904 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 3 matcher varav:
+      3 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: <br><b>Arena</b> för GameNo 7044 ändrad från ABB Arena Karlskrona till Kinnarps Arena<br><b>Arena</b> för GameNo 7050 ändrad från Kinnarps Arena till ABB Arena Karlskrona<br><b>Date</b> för GameNo 7054 ändrad från 2017-09-30 18:00:00 till 2017-09-30 15:15:00
+INFO       2017-06-13 09:35:16,904 ================== Programet avslutas ==================
+INFO       2017-06-21 08:05:21,663 ================== Programet startar ==================
+INFO       2017-06-21 08:05:21,663 ISA-Season 2017
+INFO       2017-06-21 08:05:21,677 LastSeason 2017
+INFO       2017-06-21 08:05:22,012 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-21 08:05:22,013 364 ISA-matcher har lästs in.
+INFO       2017-06-21 08:05:22,029 364 egna matcher har lästs in.
+INFO       2017-06-21 08:05:27,209 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 364 matcher varav:
+      364 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: <br><b>GameType</b> för GameNo 7022 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7023 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7024 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7025 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7026 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7027 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7028 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7029 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7030 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7031 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7032 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7033 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7034 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7035 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7036 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7037 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7038 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7039 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7040 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7041 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7042 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7043 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7044 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7045 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7046 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7047 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7048 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7049 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7050 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7051 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7052 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7053 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7054 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7055 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7056 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7057 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7058 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7059 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7060 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7061 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7062 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7063 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7064 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7065 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7066 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7067 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7068 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7069 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7070 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7071 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7072 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7073 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7074 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7075 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7076 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7077 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7078 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7079 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7080 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7081 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7082 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7083 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7084 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7085 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7086 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7087 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7088 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7089 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7090 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7091 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7092 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7093 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7094 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7095 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7096 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7097 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7098 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7099 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7100 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7101 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7102 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7103 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7104 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7105 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7106 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7107 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7108 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7109 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7110 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7111 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7112 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7113 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7114 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7115 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7116 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7117 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7118 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7119 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7120 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7121 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7122 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7123 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7124 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7125 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7126 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7127 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7128 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7129 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7130 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7131 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7132 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7133 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7134 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7135 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7136 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7137 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7138 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7139 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7140 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7141 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7142 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7143 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7144 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7145 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7146 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7147 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7148 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7149 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7150 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7151 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7152 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7153 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7154 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7155 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7156 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7157 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7158 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7159 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7160 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7161 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7162 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7163 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7164 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7165 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7166 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7167 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7168 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7169 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7170 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7171 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7172 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7173 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7174 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7175 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7176 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7177 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7178 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7179 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7180 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7181 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7182 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7183 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7184 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7185 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7186 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7187 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7188 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7189 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7190 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7191 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7192 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7193 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7194 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7195 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7196 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7197 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7198 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7199 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7200 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7201 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7202 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7203 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7204 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7205 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7206 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7207 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7208 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7209 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7210 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7211 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7212 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7213 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7214 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7215 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7216 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7217 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7218 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7219 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7220 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7221 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7222 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7223 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7224 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7225 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7226 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7227 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7228 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7229 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7230 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7231 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7232 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7233 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7234 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7235 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7236 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7237 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7238 ändrad från Elitserien till SHL<br><b>Date</b> för GameNo 7239 ändrad från 2017-09-26 19:00:00 till 2018-02-15 19:00:00<br><b>GameType</b> för GameNo 7239 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7240 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7241 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7242 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7243 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7244 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7245 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7246 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7247 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7248 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7249 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7250 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7251 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7252 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7253 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7254 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7255 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7256 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7257 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7258 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7259 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7260 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7261 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7262 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7263 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7264 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7265 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7266 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7267 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7268 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7269 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7270 ändrad från Elitserien till SHL<br><b>Date</b> för GameNo 7271 ändrad från 2018-01-14 15:15:00 till 2018-01-14 14:00:00<br><b>GameType</b> för GameNo 7271 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7272 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7273 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7274 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7275 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7276 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7277 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7278 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7279 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7280 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7281 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7282 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7283 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7284 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7285 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7286 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7287 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7288 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7289 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7290 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7291 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7292 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7293 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7294 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7295 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7296 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7297 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7298 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7299 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7300 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7301 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7302 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7303 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7304 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7305 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7306 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7307 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7308 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7309 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7310 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7311 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7312 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7313 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7314 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7315 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7316 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7317 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7318 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7319 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7320 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7321 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7322 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7323 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7324 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7325 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7326 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7327 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7328 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7329 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7330 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7331 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7332 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7333 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7334 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7335 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7336 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7337 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7338 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7339 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7340 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7341 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7342 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7343 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7344 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7345 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7346 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7347 ändrad från Elitserien till SHL<br><b>Date</b> för GameNo 7348 ändrad från 2018-02-28 19:00:00 till 2018-02-27 19:00:00<br><b>GameType</b> för GameNo 7348 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7349 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7350 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7351 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7352 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7353 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7354 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7355 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7356 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7357 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7358 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7359 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7360 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7361 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7362 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7363 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7364 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7365 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7366 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7367 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7368 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7369 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7370 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7371 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7372 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7373 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7374 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7375 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7376 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7377 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7378 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7379 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7380 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7381 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7382 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7383 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7384 ändrad från Elitserien till SHL<br><b>GameType</b> för GameNo 7385 ändrad från Elitserien till SHL
+INFO       2017-06-21 08:05:27,209 ================== Programet avslutas ==================
+INFO       2017-06-25 13:46:52,724 ================== Programet startar ==================
+INFO       2017-06-25 13:46:52,725 ISA-Season 2017
+INFO       2017-06-25 13:46:52,738 LastSeason 2017
+INFO       2017-06-25 13:46:53,071 Slut på läsningen av matcher för säsong 2017
+INFO       2017-06-25 13:46:53,072 364 ISA-matcher har lästs in.
+INFO       2017-06-25 13:46:53,086 364 egna matcher har lästs in.
+INFO       2017-06-25 13:46:53,819 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-06-25 13:46:53,820 ================== Programet avslutas ==================
+INFO       2017-08-18 06:30:46,346 ================== Programet startar ==================
+INFO       2017-08-18 06:30:46,347 ISA-Season 2017
+INFO       2017-08-18 06:30:46,360 LastSeason 2017
+INFO       2017-08-18 06:30:46,694 Slut på läsningen av matcher för säsong 2017
+INFO       2017-08-18 06:30:46,695 364 ISA-matcher har lästs in.
+INFO       2017-08-18 06:30:46,712 364 egna matcher har lästs in.
+INFO       2017-08-18 06:30:51,077 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 52 matcher varav:
+      52 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: <br><b>Arena</b> för GameNo 7027 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7031 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7041 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7048 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7050 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7055 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7066 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7068 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7083 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7088 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7094 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7102 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7112 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7122 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7124 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7137 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7143 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7153 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7154 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7161 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7168 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7182 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7187 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7189 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7198 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7203 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7211 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7214 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7223 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7230 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7238 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7244 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7245 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7252 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7255 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7269 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7283 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7288 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7290 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7302 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7308 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7310 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7316 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7321 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7334 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7340 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7344 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7346 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7363 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona<br><b>Arena</b> för GameNo 7366 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7373 ändrad från Smidjegrav Arena till Jalas Arena<br><b>Arena</b> för GameNo 7378 ändrad från ABB Arena Karlskrona till NKT Arena Karlskrona
+INFO       2017-08-18 06:30:51,077 ================== Programet avslutas ==================
+INFO       2017-08-20 21:42:56,014 ================== Programet startar ==================
+INFO       2017-08-20 21:42:56,014 ISA-Season 2017
+INFO       2017-08-20 21:42:56,028 LastSeason 2017
+INFO       2017-08-20 21:42:56,360 Slut på läsningen av matcher för säsong 2017
+INFO       2017-08-20 21:42:56,361 364 ISA-matcher har lästs in.
+INFO       2017-08-20 21:42:56,375 364 egna matcher har lästs in.
+INFO       2017-08-20 21:42:57,058 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-08-20 21:42:57,059 ================== Programet avslutas ==================
+INFO       2017-08-21 08:12:29,383 ================== Programet startar ==================
+INFO       2017-08-21 08:12:29,383 ISA-Season 2017
+INFO       2017-08-21 08:12:29,396 LastSeason 2017
+INFO       2017-08-21 08:12:29,725 Slut på läsningen av matcher för säsong 2017
+INFO       2017-08-21 08:12:29,726 364 ISA-matcher har lästs in.
+INFO       2017-08-21 08:12:29,739 364 egna matcher har lästs in.
+INFO       2017-08-21 08:12:31,937 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 364 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-08-21 08:12:31,937 ================== Programet avslutas ==================
+INFO       2017-09-08 07:27:59,254 ================== Programet startar ==================
+INFO       2017-09-08 07:27:59,255 ISA-Season 2017
+ERROR      2017-09-08 07:28:03,129 ReadLastSeason misslyckades
+INFO       2017-09-08 07:28:03,130 ================== Programet avslutas ==================
+INFO       2017-09-08 07:29:47,382 ================== Programet startar ==================
+INFO       2017-09-08 07:29:47,382 ISA-Season 2017
+INFO       2017-09-08 07:29:47,442 LastSeason 2017
+INFO       2017-09-08 07:29:47,656 Slut på läsningen av matcher för säsong 2017
+INFO       2017-09-08 07:29:47,657 366 ISA-matcher har lästs in.
+INFO       2017-09-08 07:29:47,692 364 egna matcher har lästs in.
+INFO       2017-09-08 07:29:51,108 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 366 matcher.
+Från vår egen databas har vi initialt läst in 366 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 2 matcher varav:
+      2 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 7392, 7399
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-09-08 07:29:51,109 ================== Programet avslutas ==================
+INFO       2017-09-21 06:47:01,874 ================== Programet startar ==================
+INFO       2017-09-21 06:47:01,875 ISA-Season 2017
+INFO       2017-09-21 06:47:01,894 LastSeason 2017
+INFO       2017-09-21 06:47:02,106 Slut på läsningen av matcher för säsong 2017
+INFO       2017-09-21 06:47:02,107 364 ISA-matcher har lästs in.
+INFO       2017-09-21 06:47:02,132 367 egna matcher har lästs in.
+INFO       2017-09-21 06:47:05,427 Sammanställning för säsong 2017
+
+Vi har initialt läst in ifrån ISA-systemmet 364 matcher.
+Från vår egen databas har vi initialt läst in 367 matcher.
+
+Följande bearbetning har gjorts:
+   Registrering: Totalt 0 matcher varav:
+      0 lyckade registreringar.
+          0 misslyckade registreringar.
+   Borttagning totalt 0 matcher varav:
+      0 lyckade borttagningar.
+          0 misslyckade borttagningar.
+   Uppdatering totalt 0 matcher varav:
+      0 lyckade uppdateringar.
+          0 misslyckade uppdateringar.
+
+Lista med GameNo över nyregistrerade matcher: 
+
+Lista med GameNo över borttagna matcher: 
+
+Lista över ändringar genomförda i matcher: 
+INFO       2017-09-21 06:47:05,428 ================== Programet avslutas ==================

@@ -1,0 +1,322 @@
+//Javascript File
+
+var Dagens        = '';
+var Franvarolista = new Array();
+
+
+
+initiera();
+
+
+
+function initiera(){
+
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    Dagens = YYYY + '-' + MM + '-' + DD;
+
+
+    var s = '<div class="col-md-2 col-xs-2"></div>';
+    s += '<div id="c_side" class="col-md-8 col-xs-8"></div>';
+    s += '<div class="col-md-2 col-xs-2"></div>';
+
+    document.getElementById('div_container').innerHTML = s;
+
+    visa_sidan();
+    visa_foten();
+}
+
+
+function visa_sidan(){
+    
+    var s = '<div class="col-md-6 col-xs-6 right-header">';
+    s += '<a href="mittkonto.php"><img src="Images/SHL-logo.jpg" alt="SHL" class="logo" style="width:80%;"></a></div>';
+
+
+    s += '<div class="col-md-6 col-xs-6 left-header">';
+    logInfo = JSON.parse(logInfo);
+    s += '<p id="inloggadsom" class="text-right">';
+    s += logInfo.JerseyNo + '-' + logInfo.FirstName + ', ' + logInfo.LastName;
+    s += '<br>' + Domartyper[logInfo.Domartyp];
+    if (logInfo.Priviledge != logInfo.Domartyp){
+	s += ' (' + Domartyper[logInfo.Priviledge] + ')';
+    }
+    s += '</p>';
+	
+    s +='<p id="knapp" class="text-right"></p>';
+    s += '</div>';
+
+
+    s += '<h1 class="center-text">Frånvaro</h1>';
+    s += '<br>';
+
+    s += '<div class="form-group text-center">';
+
+    
+    if (Userslista.status == 'Error'){
+	s += 'Vi kan tyvärr inte lämna denna information just nu på grund av oförutsedda problem.<br><br>Vid upprepade fel kontakta webbmaster';
+    } else {
+	s += bygg_sidan();
+    }
+
+    s += '</div>';
+
+    document.getElementById('c_side').innerHTML = s;
+
+    
+    s  = '<button class="btn btn-info btn-xs" onclick="logout()">Logga ut</button>';
+    document.getElementById('knapp').innerHTML = s;
+    
+}
+
+function bygg_sidan(){
+
+  
+
+    var s = '<label>Välj person:</label>';
+    s += '<select class="" id="cbDomare" onchange="get_info()">';
+    s += '<option>Välj person</option>';
+    for (var i = 0; i < Userslista.User.length; i++){
+	var Namn = Userslista.User[i].Domartyp + '-' + Userslista.User[i].JerseyNo + '-' + Userslista.User[i].LastName + ', ' + Userslista.User[i].FirstName;
+	s += '<option>' + Namn + '</option>';
+    }
+    s += '</select>';
+    s += "&nbsp;&nbsp;&nbsp;<input type='button' class='btn btn-info' onclick='tillbaka()' value='Till Mitt konto'></input>";
+
+    s += '<div id="div_table"></div>';
+    s += '<br><br>';
+    return s;
+}
+
+function get_info(){
+
+    // Domare
+    DomarIndex = document.getElementById('cbDomare').selectedIndex;
+    if (DomarIndex == 0){
+	var s = '<br><br>';
+	document.getElementById('div_table').innerHTML = s;
+	return;
+    }
+
+  
+    var s = '<br>';
+
+    var instring  = '{"JerseyNo":'   + Userslista.User[DomarIndex-1].JerseyNo   + '}';
+
+    var js_objekt = JSON.parse(instring);
+    
+
+    $.getJSON("ajax/get_franvaro.php", js_objekt)
+        .done(function(data) {
+	    get_info_success(data);
+	})
+        .fail(function() {
+	    get_info_fail();
+	})
+        .always(function() {
+
+	});
+
+}
+    
+function get_info_success(response){
+
+    Franvarolista = response;
+    
+    if (response.status == 'Error'){
+	alert("Läsning av information har, av okänd anledning, misslyckats. Vid upprepade fel kontakta webbmaster.");
+    } else {
+	visa_resten();
+    }
+    
+}
+
+function get_info_fail(){
+
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+
+function visa_resten(){
+
+    var s = '<table class="table">';
+    s += '<thead>';
+    s += '<tr>';
+    s += '<th>Ledig</th>';
+    s += '<th>Registrerad</th>';
+    s += '<th>Registrerad av</th>';
+    if (Dagens > LastDate.DateOut){
+	s += '<th>Ta bort</th>';
+    }
+    s += '</tr>';
+    s += '</thead>';
+    s += '<tbody>';
+    
+    for (var i = 0; i < Franvarolista.Dag.length; i++){
+
+	s += '<tr style="cursor:default;">';
+	//Datum
+	s += '<td>' + Franvarolista.Dag[i].Datum + '</td>';
+
+	//Noterad_Ledig
+	s += '<td>' +  Franvarolista.Dag[i].Noterad_Ledig + '</td>';
+
+	//Noterad_Ledig av
+	s += '<td>' +  Franvarolista.Dag[i].Noterad_Ledig_Av + '</td>';
+
+	if (Dagens > LastDate.DateOut){
+	    //Ta bort
+	    s += '<td><button type="button" class="btn-xs btn-warning" onclick="tabort(' + String(i) + ')">Ta bort</button>';
+	}
+
+	s += '</tr>';
+
+    }
+
+    if (Dagens > LastDate.DateOut){
+	s += '<tr style="cursor:default;">';
+	//Datum
+	s += '<td>' + '<input type="text" id="txtDatum" maxlength="10"/></td>';
+
+	//Noterad_Ledig
+	s += '<td>' +  Dagens + '</td>';
+
+	//Noterad_Ledig av
+	s += '<td>' +  logInfo.FirstName + ', ' + logInfo.LastName + '</td>';
+    
+	s += '<td><button type="button" class="btn-xs btn-primary" onclick="set_ledighet()">Lägg till</button>';
+    }
+    
+    s += '</tbody>';
+    s += '</table>';
+
+    s += '<br>';
+    s += "<button class='btn btn-info' onclick='tillbaka()'>Till Mitt konto</button>";
+
+    document.getElementById('div_table').innerHTML = s;
+
+}
+
+function tabort(i){
+    var tmp = "Vill du verkligen ta bort ledigheten " + Franvarolista.Dag[i].Datum + "?";
+    if (confirm(tmp) == false) return;
+
+
+
+    DomarIndex = document.getElementById('cbDomare').selectedIndex;
+
+    var instring  = '{"JerseyNo":'   + Userslista.User[DomarIndex-1].JerseyNo   + ', ';
+    instring += '"Datum": "' + Franvarolista.Dag[i].Datum + '"}';
+
+
+    var js_objekt = JSON.parse(instring);
+    
+
+    $.getJSON("ajax/delete_ledighet.php", js_objekt)
+        .done(function(data) {
+	    tabort_success(data);
+	})
+        .fail(function() {
+	    tabort_fail();
+	})
+        .always(function() {
+
+	});
+    
+}
+    
+function tabort_success(response){
+
+    if (response.status == 'Error'){
+	alert("Borttagning av ledigheten har, av okänd anledning, misslyckats. Vid upprepade fel kontakta webbmaster.");
+    } else if (response.status == 'OK'){
+	get_info();
+    }
+    
+}
+
+function tabort_fail(){
+
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+
+function tillbaka(){
+    window.location.href = "mittkonto.php";
+}
+
+function set_ledighet(){
+
+    var NyDatum  = rensatoDB(document.getElementById('txtDatum').value.trim());
+    document.getElementById('txtDatum').value = NyDatum;
+    if (!NyDatum){
+	alert("Datum saknas.");
+	document.getElementById('txtDatum').focus();
+	return;
+    }
+
+    // Kontrollerar om denna datum redan finns i Franvarolista
+    var Finns = false;
+    for (var i = 0; i < Franvarolista.Dag.length; ++i){
+	if (Franvarolista.Dag[i].Datum == NyDatum){
+	    Finns = true;
+	    break;
+	}
+    }
+
+    if (Finns == true){
+	alert("Denna ledighetsdatum finns redan registrerad! Registreringen makuleras.");
+	return;
+    }
+
+    // Kontrollera om datumet tillhör det förflutna!
+    if (NyDatum < Dagens){
+	alert("Denna datum är redan passerad. Åtgärden makuleras.");
+	return;
+    }
+    
+    
+
+    var instring  = '{"JerseyNo":'   + Userslista.User[DomarIndex-1].JerseyNo   + ', ';
+    instring += '"Datum": "' + NyDatum + '"}';
+
+
+    var js_objekt = JSON.parse(instring);
+    
+
+    $.getJSON("ajax/set_ledighet.php", js_objekt)
+        .done(function(data) {
+	    set_ledighet_success(data);
+	})
+        .fail(function() {
+	    set_ledighet_fail();
+	})
+        .always(function() {
+
+	});
+    
+
+}
+    
+function set_ledighet_success(response){
+
+    if (response.status == 'Error'){
+	alert("Registrering av ledigheten har, av okänd anledning, misslyckats. Vid upprepade fel kontakta webbmaster.");
+    } else if (response.status == 'Tillsatt'){
+	var tmp = "Redan tillsatt att döma matchen " + response.HomeName + " - " + response.AwayName + ". Registreringen makuleras";
+	alert(tmp);
+    } else if (response.status == 'OK'){
+	get_info();
+    }
+    
+}
+
+function set_ledighet_fail(){
+
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+

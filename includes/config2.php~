@@ -1,0 +1,107 @@
+<?php
+
+
+define ("KORNING", "TEST");
+#define ("KORNING", "PRODUKTION");
+
+
+// Avser databasen
+define("DB_NAME",        "shl");
+define("DB_HOST",        "localhost");
+
+if (KORNING == "TEST"){
+
+    define("DB_PW"  , "silop1337");   // Lokala databasen
+    define("DB_USER", "user");
+
+} else {
+
+    define("DB_PW", "YYYYYYYYY"); // produktionsdatabasen
+    define("DB_USER", "user");
+}
+
+
+//Avser path till ErrorFile
+define("SHL_ERROR_FILE",  "/var/log/shl/shl.log");
+
+
+define("DOCTYPEN", '<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>');
+
+
+define("RESTEN", '<meta name="description" content="NitsaSoft in Sweden AB">
+<link rel="SHORTCUT ICON" href="Images/home.ico" type="image/x-icon" />
+</head>');
+
+define("BODY", '<body>
+<div class="row">
+ <div class="col-md-10 col-xs-8 right-header">
+
+ <img src="Images/SHL-logo.jpg" alt="SHL" class="logo">
+
+ </div>
+ <div class="col-md-2 col-xs-4 left-header">
+
+ 	<p id="inloggadsom">Inloggad som: Ej inloggad</p>
+
+ 	<a href="index.php">Tillbaka</a>
+
+
+ </div>
+</div>');
+
+
+define("FOTEN", '
+<footer class="navbar navbar-default foooter">
+
+ <div class="col-md-4 col-lg-4 col-xs-12 ">
+ 	   <h4 class="center-text">SHL</h4>
+ 	   <p  class="center-text">Namn shl</p>
+ 	   <p  class="center-text">Telefon SHL</p>
+ 	   <p  class="center-text">Organisationsnummer SHL</p>
+ 	   <p  class="center-text">Adress SHL</p>   
+ 
+</div>
+
+
+ <div class="col-md-4 col-lg-4 col-xs-12">
+ 	   <h4 class="center-text">Domarchef</h4>
+ 	   <p class="center-text">Peter Andersson</p>
+ 	   <p class="center-text">Mobil</p>
+ 	   <p class="center-text">Epost</p>
+
+ 	
+ </div>
+
+ <div class="col-md-4 col-lg-4 col-xs-12 ">
+ 	   <h4 class="center-text">Webmaster</h4>
+ 	   <p class="center-text">Webmaster nummer</p>
+ 	   <p class="center-text">Epost webmaster</p>
+ </div>
+ </footer>');
+
+
+define("AVSLUT", '
+</body>
+</html>');
+
+
+
+
+define("indexCSS",       "<link rel='stylesheet' type='text/css' href='css/index.css'>");
+define("FROM",           "pavlidis.nitsasoft@gmail.com");
+

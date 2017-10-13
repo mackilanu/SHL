@@ -1,0 +1,82 @@
+<?php
+
+@session_start();
+
+
+if (!isset($_SESSION['JerseyNo'])){
+    header("Location: ../nosession.php");
+    exit();
+}
+
+
+header("Content-type: text/html; charset=utf-8");
+
+date_default_timezone_set("Europe/Stockholm");
+
+
+
+require_once("../includes/config.php");
+require_once("../includes/io.php");
+require_once("../includes/opendb.php");
+
+
+
+$JerseyNo  = $_GET['JerseyNo'];
+
+
+echo  read_Aterbud($JerseyNo);
+
+
+function read_Aterbud($JerseyNo){
+
+    $message_data = "SHL-ERROR vid ajax/get_aterbud.php function read_Aterbud($JerseyNo).";
+
+    $Season = $_SESSION['Season'];
+    $SQL  = "CALL read_Aterbud($Season, $JerseyNo)";
+
+    list($affected_rows,$result) = opendb($message_data,$SQL);
+
+    if (!$result) return '{"status": "Error"}';
+
+
+
+    $Aterbudslista = '{"status": "OK", "Dag": [';
+    for ($i = 0; $i < $affected_rows; ++$i){
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($i > 0){
+            $Aterbudslista .=  ',';
+        }
+        $Aterbudslista     .=  json_encode($row);
+    }
+
+    $Aterbudslista         .= '], "Match": [';
+
+    $FromDate  = new DateTime("now",new DateTimeZone('Europe/Stockholm'));
+    $FromDate  = $FromDate->format("Y-m-d H:i:s");
+    $FromDate  = '2017-03-01 00:00:00';
+    $SQL  = "CALL read_tillsattamatcher($Season, $JerseyNo, '$FromDate')";
+
+    $affected_rows = 0;
+    list($affected_rows,$result) = opendb($message_data,$SQL);
+
+    if (!$result) return '{"status": "Error"}';
+
+
+
+    for ($i = 0; $i < $affected_rows; ++$i){
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($i > 0){
+            $Aterbudslista .=  ',';
+        }
+        $Aterbudslista     .=  json_encode($row);
+    }
+
+    $Aterbudslista         .= ']}';
+    
+    
+    return $Aterbudslista;
+
+}
+
+
+?>

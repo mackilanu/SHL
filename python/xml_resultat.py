@@ -1,0 +1,522 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+##################################################################
+#                                                                #
+# Programmet startas med:                                        #
+#                                                                #
+# python xml_matcher.py med parameter TEST eller PRODUKTION      #
+#                                                                #
+##################################################################
+
+
+import sys
+reload(sys)
+
+import urllib2
+import MySQLdb
+import time
+import datetime
+import sys
+import logging
+import logging.handlers
+from lxml import etree # sudo apt-get install python-lxml
+import getpass
+
+
+
+import smtplib # För att kunna skicka epost via SMTP
+
+# Import the email modules
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.header import Header
+
+
+class isa_match():
+   def __init__(self):
+#      self.Season        = 0 Primär nyckel
+#      self.GameId        = 0 Primär nyckel
+      self.HomeId         = ''
+      self.HomeName       = ''
+      self.HomeCode       = ''
+      self.AwayId         = ''
+      self.AwayName       = ''
+      self.AwayCode       = ''
+      self.Date           = ''
+      self.Arena          = ''
+      self.Round          = ''
+      self.GameType       = ''
+      self.Level          = ''
+      self.Game           = ''
+      self.SeriesIndex    = ''
+
+class shl_match():
+   def __init__(self):
+      self.GameId         = ''
+      self.Status         = ''
+      self.GameState      = ''
+      self.HomeId         = ''
+      self.HomeName       = ''
+      self.HomeCode       = ''
+      self.AwayId         = ''
+      self.AwayName       = ''
+      self.AwayCode       = ''
+      self.Date           = ''
+
+
+
+
+class utvisning():
+   def __init__(self):
+#    self.Season           = 0 Primär nyckel
+#    self.GameId           = 0 Primär nyckel
+      self.MinorTime       = 0;
+      self.DoubleMinorTime = 0
+      self.BenchTime       = 0
+      self.MajorTime       = 0
+      self.MisconductTime  = 0
+      self.GMTime          = 0
+      self.MPTime          = 0
+
+
+
+
+def read_shlCurrentSeason():
+
+   global Season
+
+
+   try:
+      db = MySQLdb.connect(host=myhost, user=myuser, passwd=mypasswd, db=mydb)
+      db.set_character_set('utf8')
+
+      cursor = db.cursor()
+      cursor.execute('SET NAMES utf8;')
+      cursor.execute('SET CHARACTER SET utf8;')
+      cursor.execute('SET character_set_connection=utf8;')
+
+      params = []
+      cursor.callproc('read_CurrentSeason')
+      result = cursor.fetchall()
+
+      Season = 0
+
+      for i in range(cursor.rowcount):
+
+         Season   = result[i][0]
+
+
+
+      cursor.close()
+      db.close()
+
+   except MySQLdb.Error,e:
+      fel = ''
+      try:
+         fel = str(e.args[0]) + '\n\n' + str(e.args[1])
+      except IndexError:
+         fel = str(e)
+
+      felmedelande = 'Error vid read_shlCurrentSeason med följande beskrivning:\n\n' + fel
+      #Send the mail
+      sendmail(TillMig, 'ERROR - xml_resultat.py',felmedelande )
+
+   #print 'CurrentSeason=', Season
+   return True
+
+
+
+def Read_shlMatcher():
+
+   global Season
+   global shl_Matcher
+   global TillMig
+
+   try:
+      db = MySQLdb.connect(host=myhost, user=myuser, passwd=mypasswd, db=mydb)
+      db.set_character_set('utf8')
+
+      cursor = db.cursor()
+      cursor.execute('SET NAMES utf8;')
+      cursor.execute('SET CHARACTER SET utf8;')
+      cursor.execute('SET character_set_connection=utf8;')
+
+      params = [Season]
+      cursor.callproc('read_MatcherUtanStatus', params)
+      result = cursor.fetchall()
+
+      shl_Matcher.clear()
+
+      for i in range(cursor.rowcount):
+
+         new_Match = shl_match()
+
+         GameId    = result[i][0]
+
+         new_Match.Status      = None
+         if result[i][1] != None:
+            new_Match.Status      = result[i][1].decode('utf-8')
+
+         new_Match.GameState   = None
+         if result[i][2] != None:
+            new_Match.GameState   = result[i][2].decode('utf-8')
+
+         new_Match.HomeId      = result[i][3].decode('utf-8')
+         new_Match.HomeName    = result[i][4].decode('utf-8')
+         new_Match.HomeCode    = result[i][5].decode('utf-8')
+         new_Match.AwayId      = result[i][6].decode('utf-8')
+         new_Match.AwayName    = result[i][7].decode('utf-8')
+         new_Match.AwayCode    = result[i][8].decode('utf-8')
+         new_Match.Date        = result[i][9]
+
+
+         shl_Matcher[GameId]  = new_Match
+
+      cursor.close()
+      db.close()
+
+   except MySQLdb.Error,e:
+      fel = ''
+      try:
+         fel = str(e.args[0]) + '\n\n' + str(e.args[1])
+      except IndexError:
+         fel = str(e)
+
+      felmedelande = 'Error vid read_shlMatcher med följande beskrivning:\n\n' + fel
+      #Send the mail
+      sendmail(TillMig, 'ERROR - xml_resultat.py',felmedelande )
+
+   #print 'Inlästa poster=', str(len(shl_Matcher))
+   return
+
+
+
+def Read_isaMatch(Datum,HomeId,AwayId):
+   global Lyckade
+   global Misslyckade
+   global Ej_resultat
+
+   s = Datum + "-" + HomeId + "-" + AwayId + "-GameReport.xml"
+
+
+   url = "http://reports.statnet.se/report/" + s
+
+
+
+   try:
+
+      f = urllib2.urlopen(url)
+      #data=unicode(f.read(),'ISO-8859-1')
+      data = f.read()
+
+      global new_isa_macth
+
+      HomeTotal        = dict()
+      AwayTotal        = dict()
+      global shl_Matcher
+      global isa_Matcher
+
+      poster   = 0
+
+      try:
+         root       = etree.fromstring (data)
+         Status     = root.find( 'Status').text
+         #print "Status=",Status,
+         GameId     = root.find( 'GameNo').text
+         #print ", GameId=",GameId,
+         GameState  = root.find( 'GameState').text
+         #print ", GameState=",GameState,
+         HomeTotal  = root.find( 'HomeTotal')
+         for child in HomeTotal:
+            if child.tag == "G":
+               HomeGoal = int(child.text)
+               #print ", HomeGoal=",HomeGoal,
+         AwayTotal  = root.find( 'AwayTotal')
+         for child in AwayTotal:
+            if child.tag == "G":
+               AwayGoal = int(child.text)
+               #print ", AwayGoal=",AwayGoal
+
+
+         isa_Matcher += 1
+         update_matchresult(GameId,Status,GameState,HomeGoal,AwayGoal,Datum,HomeId,AwayId)
+
+
+      except etree.XMLSyntaxError, e:
+         #print
+         #print time.ctime(),
+         #print "Exception in def Read_isaMatch: %d:  %s" % ( e.args[0], e.args[1] )
+         #log.error("Exception in def ReadXMLLottoOmgang: %s", e.args[1])
+         felmedelande = "Exception in def Read_isaMatch Datum=" + Datum + ", HomeId=" + HomeId + ", AwayId=" + AwayId
+         log.error(felmedelande)
+         sendmail(TillMig, 'ERROR - xml_resultat.py',felmedelande )
+
+
+      Lyckade += 1
+   except:
+      Misslyckade += 1
+      Ej_resultat += '<br>Matchen ' + HomeId + '-' + AwayId + ' med speldatum ' + str(Datum) + '.'
+
+   return
+
+def update_matchresult(GameId,Status,GameState,HomeGoal,AwayGoal,Datum,HomeId,AwayId):
+
+   global Season
+   global resultat
+
+   try:
+      db = MySQLdb.connect(host=myhost, user=myuser, passwd=mypasswd, db=mydb)
+      db.set_character_set('utf8')
+
+      cursor = db.cursor()
+      cursor.execute('SET NAMES utf8;')
+      cursor.execute('SET CHARACTER SET utf8;')
+      cursor.execute('SET character_set_connection=utf8;')
+
+      params = [Season,GameId,Status,GameState,HomeGoal,AwayGoal]
+      cursor.callproc('update_matchresultat', params)
+      db.commit()
+      cursor.close()
+      db.close()
+      resultat += '<br>Matchen ' + HomeId + '-' + AwayId + ' med GameId=' + str(GameId) + ' och speldatum=' + str(Datum) + ' är uppdaterat med status ' + str(Status) + ' och matchresultat ' + str(HomeGoal) + '-' + str(AwayGoal) + '.'
+
+   except MySQLdb.Error,e:
+      fel = ''
+      try:
+         fel = str(e.args[0]) + '\n\n' + str(e.args[1])
+         felmedelande = 'Error vid xml_resultat.py update_matchresult med följande beskrivning:\n\n' + fel
+         log.error(felmedelande)
+      except IndexError:
+         fel = str(e)
+
+         felmedelande = 'Error vid xml_resultat.py update_matchresult med följande beskrivning:\n\n' + fel
+         log.error(felmedelande)
+         #Send the mail
+         sendmail(TillMig, 'ERROR - xml_resultat.py',felmedelande )
+
+
+   return
+
+
+
+
+def sendmail(mottagare, rubrik, body):
+   global TillMig
+
+   me  = 'christer.larking@shl.se'
+   you = ''
+
+   if (KORNING == 'TEST'):
+      you = TillMig   # vid TESTER
+   else:
+      you = mottagare # vid PRODUKTION
+
+
+
+
+   # Construct email
+   msg = MIMEMultipart('alternative')
+   msg['Subject'] = Header(rubrik,'utf-8')
+   msg['From']    = 'christer.larking@shl.se'
+   msg['To']      = you
+
+   #text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttps://www.python.org"
+
+   # Record the MIME types of both parts - text/plain and text/html.
+   #part1 = MIMEText(text, 'plain')
+   part2 = MIMEText(body, 'html','utf-8')
+
+   # Attach parts into message container.
+   # According to RFC 2046, the last part of a multipart message, in this case
+   # the HTML message, is best and preferred.
+   #msg.attach(part1)
+   msg.attach(part2)
+
+   # Send the message via One.com server.
+   s = smtplib.SMTP('smtp.office365.com',587)
+   s.starttls()
+   smtp_user   = 'christer.larking@shl.se'
+   smtp_pass   = 'SHLreferee@33@'
+   SendSuccess = True
+   try:
+      s.login(smtp_user,smtp_pass)
+      # sendmail function takes 3 arguments: sender's address, recipient's address
+      # and message to send - here it is sent as one string.
+      #
+      #
+      s.sendmail(me, you, msg.as_string())
+      #
+      #
+
+   except Exception:
+      log.error('Misslyckad epost från ' + me + ' till ' + you)
+      log.error('Misslyckad e-posten är: \n' + body)
+      SendSuccess = False
+
+   s.quit()
+   return SendSuccess
+
+
+
+
+
+# ==========================================================================
+#                                                                          #
+#                        THE MAIN PROGRAM BEGIN HERE                       #
+#                                                                          #
+# ==========================================================================
+
+
+sys.setdefaultencoding('utf-8')
+
+
+if len(sys.argv) != 2:
+   #print 'Parameter KORNING(ska vara TEST eller PRODUKTION) behövs. Programmet avbryts! Ha en trevlig dag!'
+   #print
+   sys.exit(0)
+
+
+
+KORNING  =  sys.argv[1]
+
+myhost   = 'localhost'
+myuser   = 'root'
+mydb     = 'shl'
+
+if (KORNING   == 'TEST'):
+   mypasswd    = 'silop1337' # Utvecklingsmiljö
+elif (KORNING == 'PRODUKTION'):
+   mypasswd    = 'silop1337'   # Produktionsmiljö
+else:
+   #print 'KORNING ska vara TEST eller PRODUKTION. Programmet avbryts! Ha en trevlig dag!'
+   #print
+   sys.exit(0)
+
+
+TillMig          = 'pavlidis.nitsasoft@gmail.com'
+TillMottagare    = 'christer.larking@shl.se, pavlidis.nitsasoft@gmail.com'
+
+
+updates          = 0
+updates_fail     = 0
+updated_matches  = ''
+
+Lyckade          = 0
+Misslyckade      = 0
+
+shl_Matcher      = dict() # Data i SHL-databasen
+isa_Matcher      = 0 # Resultat från ISA-systemet
+Season           = ''
+resultat         = ''
+Ej_resultat      = ''
+
+
+if not read_shlCurrentSeason():
+   #print 'Misslyckad inläsning av current Season.'
+   sys.exit(0)
+
+
+
+LOG_FILENAME = "resultat_" + str(Season) + ".log"
+username = getpass.getuser()
+#print "username=",username
+
+#if (username == "shl") or (username == "root"):
+#    LOG_FILENAME = "/var/log/shl/matcher.log"
+#else:
+#    LOG_FILENAME = "matcher.log"
+
+
+format = logging.Formatter("%(levelname)-10s %(asctime)s %(message)s")
+fhandler = logging.FileHandler(LOG_FILENAME,'a','utf-8')
+fhandler.setFormatter(format)
+log = logging.getLogger("shl.matcher")
+log.setLevel(logging.INFO)
+log.addHandler(fhandler)
+
+
+log.info("xml_resultat started")
+
+
+Read_shlMatcher()
+s = str(len(shl_Matcher)) + ' shl-matcher har lästs in.'
+
+
+for i in shl_Matcher:
+
+   Datum    = "{:%Y}".format(shl_Matcher[i].Date)
+   Datum   += "{:%m}".format(shl_Matcher[i].Date)
+   Datum   += "{:%d}".format(shl_Matcher[i].Date)
+   HomeId   = shl_Matcher[i].HomeId
+   AwayId   = shl_Matcher[i].AwayId
+
+   Read_isaMatch(Datum,HomeId,AwayId)
+
+
+
+s = str(isa_Matcher) + ' matcher har lästs in.'
+#print s
+
+#print 'Lyckade=',Lyckade
+#print 'Misslyckade=',Misslyckade
+
+
+body  = '<!DOCTYPE html>'
+body += '<html lang="sv">'
+body += '<head>'
+body += '<meta charset="utf-8" />'
+body += '</head>'
+body += '<body>'
+body += '<h1 style="background: #ffa500; font-size:25pt;"><strong>refmanagement</strong></h1>'
+body += '<h2>Sammanställning av nya matchresultat för säsong ' + str(Season) + '</h2>'
+
+body += '<br>refmanagement har begärt ifrån ISA-systemet resultat för ' + str(len(shl_Matcher)) + ' matcher.'
+
+body += '<br>refmanagement har erhållit ifrån ISA-systemmet resultat från ' + str(isa_Matcher) + ' matcher.'
+
+if (Lyckade > 0):
+   body += '<br><br>Följande matchuppdateringar har refmanagement lyckats med:'
+   body += resultat
+else:
+   body += '<br><br>Inga matchuppdateringar har genomförts av refmanagement.'
+
+if (Misslyckade > 0):
+   body += '<br><br>Följande matcher uppdaterades <b>inte</b> pga utebliven information från ISA-systemet:'
+   body += Ej_resultat
+
+
+body += '<br><br><br>Med vänliga hälsningar'
+body += '<br>refmanagement'
+body += '</body>'
+body += '</html>'
+
+
+
+rubrik = 'Sammanställning av resultatuppdateringar från ISA-systemet'
+sendmail(TillMottagare, rubrik, body)
+
+
+body  = 'Sammanställning av nya matchresultat för säsong ' + str(Season)
+body += '\nrefmanagement har begärt ifrån ISA-systemet resultat för ' + str(len(shl_Matcher)) + ' matcher.'
+body += '\nrefmanagement har erhållit ifrån ISA-systemmet resultat från ' + str(isa_Matcher) + ' matcher.'
+if (Lyckade > 0):
+   body += '\n\nFöljande matchuppdateringar har refmanagement lyckats med:'
+   body += resultat
+else:
+   body += '\n\nInga matchuppdateringar har genomförts av refmanagement.'
+
+if (Misslyckade > 0):
+   body += '\n\nFöljande matcher uppdaterades inte pga utebliven information från ISA-systemet:'
+   body += Ej_resultat
+
+
+body += '\n\nMed vänliga hälsningar'
+body += '\nrefmanagement'
+
+log.info(body)
+
+sys.exit(0)
+
+

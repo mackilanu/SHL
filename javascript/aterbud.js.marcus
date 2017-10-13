@@ -1,0 +1,404 @@
+//Javascript File
+
+var Aterbudslista = new Array();
+
+
+initiera();
+
+
+
+function initiera(){
+
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    var Dagens = YYYY + '-' + MM + '-' + DD;
+
+         
+
+ if(Dagens < LastDate.DateOut){
+
+        alert("Du kan inte registrera Återbud för domarna förrens "+ LastDate.DateOut);
+        window.location.href = "mittkonto.php";
+    }
+
+    var s = '<div class="col-md-2 col-xs-2"></div>';
+    s += '<div id="c_side" class="col-md-8 col-xs-8"></div>';
+    s += '<div class="col-md-2 col-xs-2"></div>';
+
+    document.getElementById('div_container').innerHTML = s;
+
+    visa_sidan();
+    visa_foten();
+}
+
+
+function visa_sidan(){
+    
+    var s = '<div class="col-md-6 col-xs-6 right-header">';
+    s += '<a href="mittkonto.php"><img src="Images/SHL-logo.jpg" alt="SHL" class="logo" style="width:80%;"></a></div>';
+
+
+    s += '<div class="col-md-6 col-xs-6 left-header">';
+    logInfo = JSON.parse(logInfo);
+    s += '<p id="inloggadsom" class="text-right">';
+    s += logInfo.JerseyNo + '-' + logInfo.FirstName + ', ' + logInfo.LastName;
+    s += '<br>' + Domartyper[logInfo.Domartyp];
+    if (logInfo.Priviledge != logInfo.Domartyp){
+	s += ' (' + Domartyper[logInfo.Priviledge] + ')';
+    }
+    s += '</p>';
+	
+    s +='<p id="knapp" class="text-right"></p>';
+    s += '</div>';
+
+
+    s += '<h1 class="center-text">Återbud</h1>';
+    s += '<br>';
+
+    s += '<div class="form-group text-center">';
+
+    
+    if (Userslista.status == 'Error'){
+	s += 'Vi kan tyvärr inte lämna denna information just nu på grund av oförutsedda problem.<br><br>Vid upprepade fel kontakta webbadministratören';
+    } else {
+	s += bygg_sidan();
+    }
+
+    s += '</div>';
+
+    document.getElementById('c_side').innerHTML = s;
+
+    
+    s  = '<button class="btn btn-info btn-xs" onclick="logout()">Logga ut</button>';
+    document.getElementById('knapp').innerHTML = s;
+    
+}
+
+function bygg_sidan(){
+
+  
+
+    var s = '<label>Välj person:</label>';
+    s += '<select class="" id="cbDomare" onchange="get_info()">';
+    s += '<option>Välj person</option>';
+    for (var i = 0; i < Userslista.User.length; i++){
+	var Namn = Userslista.User[i].Domartyp + '-' + Userslista.User[i].JerseyNo + '-' + Userslista.User[i].LastName + ', ' + Userslista.User[i].FirstName;
+	s += '<option>' + Namn + '</option>';
+    }
+    s += '</select>';
+
+    s += "&nbsp;&nbsp;&nbsp;<input type='button' class='btn btn-info' onclick='tillbaka()' value='Till Mitt konto'></input>";
+
+    s += '<div id="div_table"></div>';
+    return s;
+}
+
+
+function set_aterbud(date, user){
+
+DomarIndex = document.getElementById('cbDomare').selectedIndex;
+  
+
+       var instring  = '{"date": "' + date +'", "User": "'+ user +'"}';    
+    var objekt = JSON.parse(instring);
+
+      var byValue = document.querySelectorAll('input[value="'+value+'"]');
+
+    $.getJSON( "ajax/update_aterbud.php", objekt)   
+        .done(function(data) {
+	   set_aterbud_success(data);
+	})
+        .fail(function() {
+       set_aterbud_fail();
+	})
+        .always(function() {
+
+	});
+}
+
+function get_info(){
+
+    // Domare
+    DomarIndex = document.getElementById('cbDomare').selectedIndex;
+    if (DomarIndex == 0){
+	var s = '<br><br>';
+	document.getElementById('div_table').innerHTML = s;
+	return;
+    }
+
+    
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    var Dagens = YYYY + '-' + MM + '-' + DD;
+
+
+    if(Dagens < LastDate.DateOut){
+
+        alert("Man kan inte regsitrea återbud än. Detta kan man göra från och med "+ LastDate.DateOut);
+        header.location.href="mittkonto.php";
+    }
+
+  
+    var s = '<br>';
+
+    var instring  = '{"JerseyNo":'   + Userslista.User[DomarIndex-1].JerseyNo   + '}';
+
+    var js_objekt = JSON.parse(instring);
+    console.log(instring);
+    
+
+    $.getJSON("ajax/get_aterbud.php", js_objekt)
+        .done(function(data) {
+	    get_info_success(data);
+	})
+        .fail(function() {
+	    get_info_fail();
+	})
+        .always(function() {
+
+	});
+
+}
+
+function tillbaka(){
+    window.location.href = "mittkonto.php";
+}
+    
+function get_info_success(response){
+
+    Aterbudslista = response;
+    
+    if (response.status == 'Error'){
+	alert("Läsning av information har, av okänd anledning, misslyckats. Vid upprepade fel kontakta webbadministratören.");
+    } else {
+	visa_resten();
+    }
+    
+}
+
+function get_info_fail(){
+
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+
+function visa_resten(){
+
+
+    
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    var Dagens = YYYY + '-' + MM + '-' + DD;
+
+    var s = '<table class="table">';
+    s += '<thead>';
+    s += '<tr>';
+    s += '<th>Datum</th>';
+    s += '<th>Återbud</th>';
+    s += '<th>Registrerad</th>';
+    s += '<th>Registrerad av</th>';
+    s += '</tr>';
+    s += '</thead>';
+    s += '<tbody>';
+    
+    for (var i = 0; i < Aterbudslista.Dag.length; i++){
+
+//        if(Aterbudslista.Dag[i].Datum > LastDate.DateOut){
+	s += '<tr style="cursor:default;">';
+	//Datum
+	s += '<td>' + Aterbudslista.Dag[i].Datum + '</td>';
+
+	//Återbud
+	s += '<td><input id="check'+ Aterbudslista.Dag[i].Datum +'" value="'+ Aterbudslista.Dag[i].Datum +'" type="checkbox" onclick="check_game(this.value)"';
+	if (Aterbudslista.Dag[i].Noterad_Aterbud){
+	    s += ' checked';
+	}
+
+
+    if(Aterbudslista.Dag[i].Datum < Dagens){
+       
+    }
+	
+	s += '></td>';
+
+	//Registrerad
+	s += '<td id='+Aterbudslista.Dag[i].Datum + '>';
+	if (Aterbudslista.Dag[i].Noterad_Aterbud){
+	    s += Aterbudslista.Dag[i].Noterad_Aterbud;
+	}
+	s += '<td>';
+
+	//Registrerad av
+	s += '<td id="by'+Aterbudslista.Dag[i].Datum + '"">';
+	if (Aterbudslista.Dag[i].Noterad_Aterbud_Av){
+	    s += Aterbudslista.Dag[i].Noterad_Aterbud_Av;
+	}
+	s += '<td>';
+	s += '</tr>';
+  //  }
+
+}
+    s += '</tbody>';
+  
+    s += '</table>';
+
+    s += '<br>';
+    s += "<button class='btn btn-info' onclick='tillbaka()'>Till Mitt konto</button>";
+
+    document.getElementById('div_table').innerHTML = s;
+
+}
+
+function check_game(value){
+   
+   var checkbox = document.getElementById("check"+value)
+	if(checkbox.checked == true){
+
+
+
+    var User =  Userslista.User[DomarIndex-1].JerseyNo;
+    var instring  = '{"JerseyNo": "'   + Userslista.User[DomarIndex-1].JerseyNo   + '", "Date": "'+ value +'"}';
+    var js_objekt = JSON.parse(instring);
+    console.log(instring);
+    
+
+    $.getJSON("ajax/check_aterbudgame.php", js_objekt)
+        .done(function(data) {
+       check_game_success(data);
+    })
+        .fail(function() {
+        check_game_fail();
+    })
+        .always(function() {
+
+    });
+}else{
+	SendAterbud(value);
+}
+}
+
+function check_game_success(response){
+
+	if(response.status == "GameDay"){
+
+	  var check = confirm("Domaren har en match på det valda datumet. Om du väljer att registrera återbud så kommer domaren att tas bort från matchen. Är du säker?");
+
+	  if(check == true){
+	  	SendAterbud(response.date);
+	  }
+	  if(check == false){
+
+	  	var checkbox = document.getElementById("check"+ response.date);
+
+	  	checkbox.checked = false;
+
+	  }
+	}
+
+	if(response.status == "NoGame"){
+		SendAterbud(response.date);
+	}
+}
+
+function SendAterbud(value){
+   
+    var User =  Userslista.User[DomarIndex-1].JerseyNo;
+    var instring  = '{"JerseyNo": "'   + Userslista.User[DomarIndex-1].JerseyNo   + '", "Date": "'+ value +'"}';
+    var js_objekt = JSON.parse(instring);
+    console.log(instring);
+    
+
+    $.getJSON("ajax/Send_aterbud.php", js_objekt)
+        .done(function(data) {
+        SendAterbud_success(data);
+    })
+        .fail(function() {
+        SendAterbud_fail();
+    })
+        .always(function() {
+
+    });
+   
+}
+
+function SendAterbud_success(response){
+
+    if(response.status == "Error"){
+        alert("Det gick inte att registrera återbudet. Vänligen kontakta administratör om problemet kvarstår.");
+    }
+
+    if(response.status == "RedanLedig"){
+
+        document.getElementById("check"+response.date).checked = false;
+        
+        alert("Domaren är redan anmäld som ledig denna dag.");
+
+       
+    }
+
+    if(response.status == "NotRemoval"){
+        alert("Det gick inte att ta bort domaren från matchen. Kontakta administratör om problemet kvarstår.");
+    }
+    if(response.status == "OK"){
+      
+        var currentDate = new Date();
+        var year  = currentDate.getFullYear();
+        var month = currentDate.getMonth() + 1;
+        var day   = currentDate.getDate();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        var seconds = currentDate.getSeconds();
+
+        if(month < 10){
+            month = "0"+month;  
+         }
+        if(minutes < 10){
+         minutes = "0"+minutes;
+        }
+        if(day < 10){
+        day = "0"+day;
+       }
+       if(seconds < 10){
+        seconds = "0"+seconds;
+       }
+
+
+        var dateString = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+ seconds;
+
+          var Noterad= document.getElementById(response.date);
+          var Noterad_Av = document.getElementById("by"+response.date);
+
+          if(Noterad.innerHTML == ""){
+             Noterad.innerHTML = "<p>"+dateString+"</p>";
+          }else{
+            Noterad.innerHTML = "";
+         }
+         if(Noterad_Av.innerHTML == ""){
+         Noterad_Av.innerHTML = "<p>"+logInfo.FirstName + " " +logInfo.LastName+"</p>";
+         }else{
+         Noterad_Av.innerHTML = "";
+  }
+ }
+}
+
+function SendAterbud_fail(){
+    alert("Det gick inte att registrera återbudet. Vänligen kontakta administratör om problemet kvarstår.");
+}
+

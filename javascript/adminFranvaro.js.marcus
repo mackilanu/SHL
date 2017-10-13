@@ -1,0 +1,264 @@
+//Javascript File
+
+
+initiera();
+
+
+function initiera(){
+
+    var s = '<div class="col-md-2 col-xs-0"></div>';
+    s += '<div id="c_side" class="col-md-8 col-xs-12"></div>';
+    s += '<div class="col-md-2 col-xs-0"></div>';
+
+
+   
+
+    document.getElementById('div_container').innerHTML = s;
+
+
+   
+
+    visa_sidan();
+    visa_foten();
+}
+
+function mittkonto(){
+    window.location.href = "mittkonto.php";
+}
+
+function visa_sidan(){
+
+	 
+    
+    var s = '<div class="col-md-6 col-xs-6 right-header">';
+    s += '<a href="mittkonto.php"><img src="Images/SHL-logo.jpg" alt="SHL" class="logo" style="width:80%;"></a></div>';
+
+
+    s += '<div class="col-md-6 col-xs-6 left-header">';
+    logInfo = JSON.parse(logInfo);
+    s += '<p id="inloggadsom" class="text-right">';
+    s += logInfo.JerseyNo + '-' + logInfo.FirstName + ', ' + logInfo.LastName;
+    s += '<br>' + Domartyper[logInfo.Domartyp];
+    if (logInfo.Priviledge != logInfo.Domartyp){
+	s += ' (' + Domartyper[logInfo.Priviledge] + ')';
+    }
+    s += '</p>';
+	
+    s +='<p id="knapp" class="text-right"></p>';
+    s += '</div>';
+
+
+    s += '<h1 class="center-text">Min frånvaro</h1>';
+    s += '<br>';
+
+    s += '<div class="form-group text-center">';
+
+    
+    if (LastDate.status == 'Error'){
+	s += 'Vi kan tyvärr inte lämna denna information just nu på grund av oförutsedda problem.<br><br>Vid upprepade fel kontakta en administratör';
+    } else {
+	s += bygg_sidan();
+    }
+
+    s += '</div>';
+
+    document.getElementById('c_side').innerHTML = s;
+
+    
+    s  = '<button class="btn btn-info btn-xs" onclick="logout()">Logga ut</button>';
+    document.getElementById('knapp').innerHTML = s;  
+}
+/*
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    var Dagens = YYYY + '-' + MM + '-' + DD;
+*/
+
+function bygg_sidan(){
+
+   var s = "<br>";  
+
+    s += "<div id='upperdiv'>";
+    s += "<select id='uppercombo' onchange='SendMonthValue()'  class='form-control'>";
+    s += "<option value='-1' selected='selected'>Välj månad </option>";
+    s += "<option value='0'>Visa alla</option>";
+    s += "<option value='8'>Augusti</option>";
+    s += "<option value='9'>September</option>";
+    s += "<option value='10'>Oktober</option>";
+    s += "<option value='11'>November</option>";
+    s += "<option value='12'>December</option>";
+    s += "<option value='1'>Januari</option>";
+    s += "<option value='2'>Februari</option>";
+    s += "<option value='3'>Mars</option>";
+    s += "<option value='4'>April</option>";
+    s += "<option value='5'>Maj</option>";
+    s += "<option value='6'>Juni</option>";
+    s += "<option value='7'>Juli</option>";
+    s += "</select>";
+    s += "</div>";
+    s += '<table class="table" id="franvaroTable">';
+    s += '<thead>';
+    s += '<tr>';
+    s += '<th>datum</th>';
+    s += '<th>Ledig</th>';
+    s += '<th>Markera</th>';
+    s += '</tr>';
+    s += '</thead>';
+    s += '<tbody id="tableBody">';
+    s += '</tbody>';
+    s += '</table>';
+    s += '<button class="btn btn-info" onclick="mittkonto()">Till mitt konto</button>';
+
+    return s;
+    
+}
+
+function changeledigStatus(value){
+
+   var instring  = '{"date": "' + value  +'"}';    
+    var objekt = JSON.parse(instring);
+
+      var byValue = document.querySelectorAll('input[value="'+value+'"]');
+
+    $.getJSON( "ajax/update_ledigheter.php", objekt)
+        .done(function(data) {
+	    changeledigStatus_success(data);
+	})
+        .fail(function() {
+        changeledigStatus_fail();
+	})
+        .always(function() {
+
+	});
+}
+
+function changeledigStatus_success(response){
+
+if(response.status == "OK"){
+
+    if(document.getElementById(response.value).innerHTML == ""){
+      document.getElementById(response.value).innerHTML = "Ledig";
+    }
+    else{
+         document.getElementById(response.value).innerHTML = "";
+    }
+}
+    if(response.status == "Tillsatt"){
+        document.getElementById('check'+response.value).checked = false;
+        alert("Du är redan tillsatt på en match den här dagen. Kontakta administratör för assistans. ");
+	    return;
+    }
+
+    if (response.status == 'Error'){
+	alert("Uppdateringen har, av okänd anledning, misslyckats. Vid upprepade fel kontakta administratören.");
+	return;
+
+    }   
+}
+
+function changeledigStatus_fail(){
+
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+
+function SendMonthValue(){
+    var value = $("#uppercombo").val();
+
+    //Tar bort tabellinnehållet ifall den inte är tom
+    if(document.getElementById("franvaroTable").rows.length != 0){
+	$("#franvaroTable td").remove();
+    }
+    
+    var instring  = '{"month": "' + value  +'"}';
+
+    var objekt = JSON.parse(instring);
+      
+    $.getJSON( "ajax/adminFranvaro.php", objekt)
+        .done(function(data) {
+        SendMonth_success(data);
+
+	})
+        .fail(function() {
+        SendMonth_fail();
+	})
+        .always(function() {
+
+	});
+
+}
+
+
+function SendMonth_success(response){
+
+    var d      = new Date();
+    var YYYY   = d.getFullYear();
+    var MM     = d.getMonth();
+    MM += 1;
+    if (MM < 10) MM = '0' + MM;
+    var DD = d.getDate();
+    if (DD < 10) DD = '0' + DD;
+    
+    var Dagens = YYYY + '-' + MM + '-' + DD;
+
+    if(response.status == "Error"){
+	return;
+    }
+
+    if(response.status == "OK"){
+
+	var check = false;
+	var cellDate;
+	var row; 
+	var table = document.getElementById("tableBody");
+	
+	for (var i = 0; i < response.Dag.length; i++){
+
+	    row      = table.insertRow(0);
+	    cellDate = row.insertCell(0);
+
+   
+	    cellDate.innerHTML = response.Dag[i].Datum;
+	    
+        var checkbox = "<input type='checkbox' id='check"+response.Dag[i].Datum+"' value='"+response.Dag[i].Datum+"' onclick='changeledigStatus(this.value)'";
+
+	    var cellLedig = row.insertCell(1),
+            cellCheck = row.insertCell(2);
+
+          var cellLedigText = "<p id='"+ response.Dag[i].Datum +"'>"; 
+        
+	    if (response.Dag[i].Noterad_Ledig){
+		checkbox += " checked";
+		cellLedigText += "Ledig";
+	    }
+
+       if(response.Dag[i].Datum < Dagens){
+ 		checkbox += " disabled";
+ 	    }
+        console.log(LastDate.DateOut);
+        if(LastDate.DateOut < Dagens){
+               checkbox += " disabled";
+        }
+
+            checkbox += ">";
+        
+            cellLedigText += "</p>"; 
+            cellLedig.innerHTML = cellLedigText;
+            cellCheck.innerHTML = checkbox;
+	}
+
+    }
+
+}
+
+function SendMonth_fail(){
+    alert("Ett oförutsett fel har inträffat! Åtgärden har inte kunnat genomföras");
+}
+
+
+

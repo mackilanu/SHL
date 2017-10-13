@@ -1,0 +1,18 @@
+<?php
+
+?>
+<div class="row">
+ <div class="col-md-10 col-xs-8 right-header">
+
+ <img src="Images/SHL-logo.jpg" alt="SHL" class="logo">
+
+ </div>
+ <div class="col-md-2 col-xs-4 left-header">
+
+ 	<p>Inloggad som: Ej inloggad</p>
+
+ 	<a href="index.php">Tillbaka</a>
+
+
+ </div>
+</div>

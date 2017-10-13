@@ -1,0 +1,29 @@
+
+body{
+ margin:auto;
+ width: 95%;
+}
+.main-content{
+     
+	margin: auto;
+	height: 65%;
+}
+
+.button{
+  width: 250px;
+     display: inline-block;
+
+}
+
+.wrapper{
+  margin-top: 40px;
+  height: auto;
+
+}
+
+/*@media (max-width: 767px) {
+  .button {
+    display: block;
+    width: 500px;
+  }
+}*/

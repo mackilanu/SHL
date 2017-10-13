@@ -1,0 +1,60 @@
+<?php
+
+@session_start();
+
+
+if (!isset($_SESSION['JerseyNo'])){
+    header("Location: ../nosession.php");
+    exit();
+}
+
+
+header("Content-type: text/html; charset=utf-8");
+
+date_default_timezone_set("Europe/Stockholm");
+
+
+
+require_once("../includes/config.php");
+require_once("../includes/io.php");
+require_once("../includes/opendb.php");
+
+
+
+$JerseyNo  = $_GET['JerseyNo'];
+
+
+echo  read_tillsattningar($JerseyNo);
+
+
+function read_tillsattningar($JerseyNo){
+
+    $message_data = "SHL-ERROR vid ajax/get_tillsattamatcher.php function read_tillsattningar($JerseyNo).";
+
+    
+    $SQL  = "CALL read_($JerseyNo)";
+
+    list($affected_rows,$result) = opendb($message_data,$SQL);
+
+    if (!$result or $affected_rows == 0){
+        return '{"status": "Error"}';
+    }
+
+
+    $Aterbudslista = '{"status": "OK", "Dag": [';
+    for ($i = 0; $i < $affected_rows; ++$i){
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($i > 0){
+            $Aterbudslista .=  ',';
+        }
+        $Aterbudslista     .=  json_encode($row);
+    }
+    $Aterbudslista         .= ']}';
+
+    
+    return $Aterbudslista;
+
+}
+
+
+?>
